@@ -44,3 +44,9 @@ Use `.txt` or `.md` extensions if preferred - cheat will find them.
 ## Notes
 
 All files live locally in `~/.cheat/`. No network calls after install.
+
+### Windows
+```cmd
+curl -fsSL https://raw.githubusercontent.com/JovianOps/cheat/master/install.bat -o install.bat && install.bat
+```
+Or copy `cheat` to a directory in PATH and run with Git Bash/WSL.
