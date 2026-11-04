@@ -1,0 +1,26 @@
+#!/bin/sh
+CHEAT_DIR="$HOME/.cheat"
+mkdir -p "$CHEAT_DIR"
+
+if [ $# -eq 0 ]; then
+  ls "$CHEAT_DIR" 2>/dev/null || echo "No cheatsheets. Add files to $CHEAT_DIR"
+  exit 0
+fi
+
+TOPIC="$1"
+FILE="$CHEAT_DIR/$TOPIC"
+if [ -f "$FILE" ]; then
+  cat "$FILE"
+  exit 0
+fi
+
+# try common extensions
+for ext in txt md; do
+  if [ -f "$CHEAT_DIR/$TOPIC.$ext" ]; then
+    cat "$CHEAT_DIR/$TOPIC.$ext"
+    exit 0
+  fi
+done
+
+echo "No cheatsheet for: $TOPIC"
+exit 1
